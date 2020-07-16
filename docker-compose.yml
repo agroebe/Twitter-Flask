@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  db:
+    build:
+      context: .
+      dockerfile: ./config/gremlin/Dockerfile
+    ports:
+      - 8182:8182
+
+  db-ui:
+    build:
+      context: .
+      dockerfile: ./config/gremlin-ui/Dockerfile
+    ports:
+      - 8183:80
+    depends_on:
+      - db
+
+  web:
+    build: .
+    env_file: .env
+    command: python main.py
+    volumes:
+      - .:/code:cached
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
