@@ -15,7 +15,7 @@ def main():
     g = graph.traversal().withRemote(remote)
 
     print('Flushing existing vertices in local db...')
-    flush()
+    flush(g)
     print('Done.')
 
     remote.close()
