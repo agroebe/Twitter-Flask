@@ -1,9 +1,14 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand">Twitter</a>
+      <form class="form-inline d-flex justify-content-center md-form form-sm active-cyan-2 mt-6">
+        <input class="form-control form-control-sm mr-3 w-80" type="text" placeholder="Search" aria-label="Search">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <button type="button" class="btn btn-default btn-md">Sign Up</button>
+        <button type="button" class="btn btn-primary btn-md">Login</button>
+      </form>
+    </nav>
     <router-view/>
   </div>
 </template>
